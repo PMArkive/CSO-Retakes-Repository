@@ -475,7 +475,7 @@ public void Event_BombPlanted(Event event, const char[] name, bool dontBroadcast
 	if(!gc_bBombsite.BoolValue)
 		return;
 
-	PrintCenterTextAll("%t\n   <font color='#00FF00' class='fontSize-l'>%s</font>", "Bomb planted on Bombsite", g_sBombSite);
+	PrintCenterTextAll("%t\n   <font color='#00FF00' class='fontSize-xl'>%s</font>", "Bomb planted on Bombsite", g_sBombSite);
 }
 
 public void Event_BeginNewMatch(Event event, const char[] name, bool dontBroadcast)
@@ -649,7 +649,7 @@ public Action Timer_ShowInfo(Handle timer)
 		if (!IsValidClient(i))
 			continue;
 
-		PrintHintText(i, "<font face='Arial' size='20'>%s %t </font>\n\t<font face='Arial' color='#00FF00' size='40'>  <b>%s</b></font>", g_sRoundType, "on Bombsite", g_sBombSite);
+		PrintCenterText(i, "%s %t \n\t<font color='#00FF00' class='fontSize-xl'>%s</font>", g_sRoundType, "on Bombsite", g_sBombSite);
 	}
 	return Plugin_Stop;
 }
