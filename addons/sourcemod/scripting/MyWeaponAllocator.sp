@@ -472,10 +472,10 @@ public Action Command_AutoShotGun(int client, int args)
 
 public void Event_BombPlanted(Event event, const char[] name, bool dontBroadcast)
 {
-	if(!gc_bBombsite.BoolValue)
+	if (!gc_bBombsite.BoolValue)
 		return;
 
-	PrintCenterTextAll("%t\n   <font color='#00FF00' class='fontSize-xl'>%s</font>", "Bomb planted on Bombsite", g_sBombSite);
+	PrintCenterTextAll("%s %t \n\t<font color='#00FF00' class='fontSize-xxl'>%s</font>", g_sRoundType, "on Bombsite", g_sBombSite);
 }
 
 public void Event_BeginNewMatch(Event event, const char[] name, bool dontBroadcast)
@@ -625,7 +625,7 @@ void ShowInfo()
 	PrintToServer("[Retake] %t %s", "Round Type", g_sRoundType);
 	Retakes_MessageToAll("%t %s", "Now is", g_sRoundType);
 
-	if(!gc_bBombsite.BoolValue)
+	if (!gc_bBombsite.BoolValue)
 		return;
 
 	Bombsite site = Retakes_GetCurrrentBombsite();
@@ -644,13 +644,7 @@ void ShowInfo()
 
 public Action Timer_ShowInfo(Handle timer)
 {
-	for (int i = 1; i <= MaxClients; i++)
-	{
-		if (!IsValidClient(i))
-			continue;
-
-		PrintCenterText(i, "%s %t \n\t<font color='#00FF00' class='fontSize-xl'>%s</font>", g_sRoundType, "on Bombsite", g_sBombSite);
-	}
+	PrintCenterTextAll("%s %t \n\t<font color='#00FF00' class='fontSize-xxl'>%s</font>", g_sRoundType, "on Bombsite", g_sBombSite);
 	return Plugin_Stop;
 }
 
@@ -862,7 +856,7 @@ public int Handler_Primary(Menu menu, MenuAction action, int client, int selecti
 		{
 			Format(g_sPrimary_CT[client], sizeof(g_sPrimary_CT), sBuffer);
 		}
-		else if(!g_bIsCT[client])
+		else if (!g_bIsCT[client])
 		{
 			Format(g_sPrimary_T[client], sizeof(g_sPrimary_T), sBuffer);
 		}
@@ -895,7 +889,7 @@ public int Handler_Secondary(Menu menu, MenuAction action, int client, int selec
 		{
 			Format(g_sSecondary_CT[client], sizeof(g_sSecondary_CT), sBuffer);
 		}
-		else if(!g_bIsCT[client])
+		else if (!g_bIsCT[client])
 		{
 			Format(g_sSecondary_T[client], sizeof(g_sSecondary_T), sBuffer);
 		}
@@ -939,7 +933,7 @@ public int Handler_SMG(Menu menu, MenuAction action, int client, int selection)
 				Menu_AWP(client);
 			}
 		}
-		else if(!g_bIsCT[client])
+		else if (!g_bIsCT[client])
 		{
 			Format(g_sSMG_T[client], sizeof(g_sSMG_T), sBuffer);
 
@@ -1070,7 +1064,7 @@ void EquipWeapons(int client)
 			int iRandom = GetRandomInt(1, 3);
 			if (iRandom == 3 && g_bTaser[client] && gc_iTaser_MinCT.IntValue <= GetPlayerCount(true, CS_TEAM_CT))
 			{
-				if(g_iTaser_CT<gc_iTaser_CT.IntValue)
+				if (g_iTaser_CT<gc_iTaser_CT.IntValue)
 				{
 					GivePlayerItem(client,"weapon_taser");
 					iMoney -= GetWeaponPrice("weapon_taser");
@@ -1121,7 +1115,7 @@ void EquipWeapons(int client)
 			int iRandom = GetRandomInt(1, 3);
 			if (iRandom == 3 && g_bTaser[client] && gc_iTaser_MinT.IntValue <= GetPlayerCount(true, CS_TEAM_T))
 			{
-				if(g_iTaser_T<gc_iTaser_T.IntValue)
+				if (g_iTaser_T<gc_iTaser_T.IntValue)
 				{
 					GivePlayerItem(client,"weapon_taser");
 					iMoney -= GetWeaponPrice("weapon_taser");
@@ -1176,7 +1170,7 @@ void EquipWeapons(int client)
 			int iRandom = GetRandomInt(1, 3);
 			if (iRandom == 3 && g_bTaser[client] && gc_iTaser_MinCT.IntValue <= GetPlayerCount(true, CS_TEAM_CT))
 			{
-				if(g_iTaser_CT<gc_iTaser_CT.IntValue)
+				if (g_iTaser_CT<gc_iTaser_CT.IntValue)
 				{
 					GivePlayerItem(client,"weapon_taser");
 					iMoney -= GetWeaponPrice("weapon_taser");
@@ -1191,7 +1185,7 @@ void EquipWeapons(int client)
 			int iRandom = GetRandomInt(1, 3);
 			if (iRandom == 3 && g_bTaser[client] && gc_iTaser_MinT.IntValue <= GetPlayerCount(true, CS_TEAM_T))
 			{
-				if(g_iTaser_T<gc_iTaser_T.IntValue)
+				if (g_iTaser_T<gc_iTaser_T.IntValue)
 				{
 					GivePlayerItem(client,"weapon_taser");
 					iMoney -= GetWeaponPrice("weapon_taser");
@@ -1211,7 +1205,7 @@ void EquipWeapons(int client)
 			int iRandom = GetRandomInt(1, 3);
 			if (iRandom == 3 && g_bTaser[client] && gc_iTaser_MinCT.IntValue <= GetPlayerCount(true, CS_TEAM_CT))
 			{
-				if(g_iTaser_CT<gc_iTaser_CT.IntValue)
+				if (g_iTaser_CT<gc_iTaser_CT.IntValue)
 				{
 					GivePlayerItem(client,"weapon_taser");
 					iMoney -= GetWeaponPrice("weapon_taser");
@@ -1226,7 +1220,7 @@ void EquipWeapons(int client)
 			int iRandom = GetRandomInt(1, 3);
 			if (iRandom == 3 && g_bTaser[client] && gc_iTaser_MinT.IntValue <= GetPlayerCount(true, CS_TEAM_T))
 			{
-				if(g_iTaser_T<gc_iTaser_T.IntValue)
+				if (g_iTaser_T<gc_iTaser_T.IntValue)
 				{
 					GivePlayerItem(client,"weapon_taser");
 					iMoney -= GetWeaponPrice("weapon_taser");
@@ -1246,7 +1240,7 @@ void EquipWeapons(int client)
 			int iRandom = GetRandomInt(1, 3);
 			if (iRandom == 3 && g_bTaser[client] && gc_iTaser_MinCT.IntValue <= GetPlayerCount(true, CS_TEAM_CT))
 			{
-				if(g_iTaser_CT<gc_iTaser_CT.IntValue)
+				if (g_iTaser_CT<gc_iTaser_CT.IntValue)
 				{
 					GivePlayerItem(client,"weapon_taser");
 					iMoney -= GetWeaponPrice("weapon_taser");
@@ -1302,7 +1296,7 @@ void EquipWeapons(int client)
 			int iRandom = GetRandomInt(1, 3);
 			if (iRandom == 3 && g_bTaser[client] && gc_iTaser_MinT.IntValue <= GetPlayerCount(true, CS_TEAM_T))
 			{
-				if(g_iTaser_T<gc_iTaser_T.IntValue)
+				if (g_iTaser_T<gc_iTaser_T.IntValue)
 				{
 					GivePlayerItem(client,"weapon_taser");
 					iMoney -= GetWeaponPrice("weapon_taser");
