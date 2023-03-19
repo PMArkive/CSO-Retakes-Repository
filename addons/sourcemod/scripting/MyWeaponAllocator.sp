@@ -728,13 +728,14 @@ void Menu_Secondary(int client)
 		menu.AddItem("weapon_usp_silencer", "USP-S");
 		menu.AddItem("weapon_hkp2000", "P2000");
 		menu.AddItem("weapon_fiveseven", "Five-SeveN");
+		menu.AddItem("weapon_elite", "Dual Barettas");
 	}
 	else if (!g_bIsCT[client])
 	{
 		Format(sBuffer, sizeof(sBuffer), "%t\n", "Select a T pistol");
 		menu.AddItem("weapon_glock", "Glock-18");
 		menu.AddItem("weapon_tec9", "Tec-9");
-		menu.AddItem("weapon_elite", "Dual Berettas");
+		menu.AddItem("weapon_elite", "Dual Barettas");
 	}
 
 	if (gc_bDeagle.BoolValue)
@@ -1628,7 +1629,7 @@ int GetWeaponPrice(char[] weapon)
 		return 3100;
 
 	else if (StrEqual(weapon, "weapon_m4a1_silencer"))
-		return 3100;
+		return 2900;
 
 	else if (StrEqual(weapon, "weapon_famas"))
 		return 2250;
