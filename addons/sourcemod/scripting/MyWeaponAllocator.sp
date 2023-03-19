@@ -141,7 +141,6 @@ public Plugin myinfo =
 public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err)
 {
 	g_bIsLateLoad = late;
-
 	return APLRes_Success;
 }
 
@@ -390,7 +389,6 @@ public Action OnClientSayCommand(int client, const char[] command, const char[] 
 		if (strcmp(args[0], sCommands[i], false) == 0)
 		{
 			Menus_Weapons(client);
-
 			break;
 		}
 	}
@@ -493,13 +491,11 @@ public void Event_RoundStart(Event event, const char[] name, bool dontBroadcast)
 		if (g_iRounds_Pistol < gc_iPistolRounds.IntValue)
 		{
 			g_iRounds_Pistol++;
-
 			SetRoundType(PISTOL_ROUND);
 		}
 		else if (g_iRounds_Force < gc_iForceRounds.IntValue)
 		{
 			g_iRounds_Force++;
-
 			SetRoundType(FORCE_ROUND);
 		}
 		else
@@ -513,14 +509,12 @@ public void Event_RoundStart(Event event, const char[] name, bool dontBroadcast)
 	if (gc_iMode.IntValue == 2)
 	{
 		SetRoundType(RIFLE_ROUND);
-
 		return;
 	}
 
 	if (gc_iMode.IntValue == 3)
 	{
 		SetRoundType(FORCE_ROUND);
-
 		return;
 	}
 
@@ -543,7 +537,6 @@ public void Event_RoundStart(Event event, const char[] name, bool dontBroadcast)
 	if (iRound <= gc_iDeagleChance.IntValue)
 	{
 		SetRoundType(DEAGLE_ROUND);
-
 		return;
 	}
 
@@ -973,6 +966,7 @@ public int Handler_AWP(Menu menu, MenuAction action, int client, int selection)
 		{
 			g_bSniper[client] = false;
 		}
+
 		if (gc_bXm1014.BoolValue)
 		{
 			Menu_Xm1014(client);
@@ -994,7 +988,6 @@ public int Handler_Taser(Menu menu, MenuAction action, int client, int selection
 	if (action == MenuAction_Select)
 	{
 		char sBuffer[24];
-
 		menu.GetItem(selection, sBuffer, sizeof(sBuffer));
 
 		if (strcmp(sBuffer, "1") == 0)
@@ -1020,7 +1013,6 @@ public int Handler_Xm1014(Menu menu, MenuAction action, int client, int selectio
 	if (action == MenuAction_Select)
 	{
 		char sBuffer[24];
-
 		menu.GetItem(selection, sBuffer, sizeof(sBuffer));
 
 		if (strcmp(sBuffer, "1") == 0)
@@ -1059,13 +1051,12 @@ void EquipWeapons(int client)
 	if (g_iRoundType == FULL_ROUND)
 	{
 		iMoney = gc_iFullMoney.IntValue;
-
 		if (GetClientTeam(client) == CS_TEAM_CT)
 		{
 			int iRandom = GetRandomInt(1, 3);
 			if (iRandom == 3 && g_bTaser[client] && gc_iTaser_MinCT.IntValue <= GetPlayerCount(true, CS_TEAM_CT))
 			{
-				if (g_iTaser_CT<gc_iTaser_CT.IntValue)
+				if (g_iTaser_CT < gc_iTaser_CT.IntValue)
 				{
 					GivePlayerItem(client,"weapon_taser");
 					iMoney -= GetWeaponPrice("weapon_taser");
@@ -1074,7 +1065,6 @@ void EquipWeapons(int client)
 			}
 			if (iRandom == 1 && g_bSniper[client] && gc_iAWP_MinCT.IntValue <= GetPlayerCount(true, CS_TEAM_CT))
 			{
-
 				if (g_iAWP_CT < gc_iAWP_CT.IntValue)
 				{
 					GivePlayerItem(client, "weapon_awp");
@@ -1089,7 +1079,6 @@ void EquipWeapons(int client)
 			}
 			else if (iRandom == 2 && g_bXm1014[client] && gc_iXm1014_MinCT.IntValue <= GetPlayerCount(true, CS_TEAM_CT))
 			{
-
 				if (g_iXm1014_CT < gc_iXm1014_CT.IntValue)
 				{
 					GivePlayerItem(client, "weapon_xm1014");
@@ -1123,6 +1112,7 @@ void EquipWeapons(int client)
 					g_iTaser_T++;
 				}
 			}
+
 			if (iRandom == 1 && g_bSniper[client] && gc_iAWP_MinT.IntValue <= GetPlayerCount(true, CS_TEAM_T))
 			{
 				if (g_iAWP_T < gc_iAWP_T.IntValue)
@@ -1304,6 +1294,7 @@ void EquipWeapons(int client)
 					g_iTaser_T++;
 				}
 			}
+
 			if (iRandom == 1 && g_bSniper[client] && gc_iScout_MinT.IntValue <= GetPlayerCount(true, CS_TEAM_T))
 			{
 				if (g_iScout_T < gc_iScout_T.IntValue)
@@ -1320,7 +1311,6 @@ void EquipWeapons(int client)
 			}
 			else if (iRandom == 2 && g_bXm1014[client] && gc_iXm1014_MinT.IntValue <= GetPlayerCount(true, CS_TEAM_T))
 			{
-
 				if (g_iXm1014_T < gc_iXm1014_T.IntValue)
 				{
 					GivePlayerItem(client, "weapon_xm1014");
@@ -1339,7 +1329,7 @@ void EquipWeapons(int client)
 				iMoney -= GetWeaponPrice(g_sSMG_T[client]);
 			}
 			if (!StrEqual(g_sSMG_T[client], "weapon_deagle"))
-			GivePlayerItem(client, "weapon_glock");
+				GivePlayerItem(client, "weapon_glock");
 		}
 	}
 	else if (g_iRoundType == DEAGLE_ROUND)
@@ -1347,7 +1337,6 @@ void EquipWeapons(int client)
 		if (GetClientTeam(client) == CS_TEAM_CT)
 		{
 			GivePlayerItem(client, "weapon_knife");
-
 			if (gc_bDefuser.BoolValue)
 			{
 				SetEntProp(client, Prop_Send, "m_bHasDefuser", 1);
@@ -1551,6 +1540,7 @@ void StripPlayerWeapons(int client)
 			AcceptEntityInput(iWeapon, "Kill");
 		}
 	}
+
 	if ((iWeapon = GetPlayerWeaponSlot(client, CS_SLOT_GRENADE)) != -1)
 	{
 		RemovePlayerItem(client, iWeapon);
