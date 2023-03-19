@@ -1,13 +1,5 @@
-// Exported from SourceMod Translator
-// Date: 2018-07-26 13:18:58 UTC
-// Language: English (en)
-// 
-// To view other translations for this plugin, please visit:
-// http://translator.mitchdempsey.com/sourcemod_plugins/311
-//
 "Phrases"
 {
-
 	"Bomb planted on Bombsite"
 	{
 		"en"		"Bomb planted on bombsite:"
@@ -87,7 +79,7 @@
 	{
 		"en"		"Allow yourself to receive: \nSSG 08 in Force Buy and \nAWP in Full Buy?"
 	}
-	
+
 	"Allow Taser"
 	{
 		"en"		"Allow yourself to receive taser?"
@@ -127,5 +119,4 @@
 	{
 		"en"		"You have to be on a team to choose your weapons."
 	}
-
 }
