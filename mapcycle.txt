@@ -11,6 +11,7 @@ de_dust2_2x2_xmas
 de_dust2_rmc
 de_dust_2014_og
 de_fastline
+de_ffvii_mako_reactor_v6_b09_b2k_csgo
 de_inferno
 de_inferno_2014_og
 de_inferno_winter
