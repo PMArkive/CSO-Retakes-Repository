@@ -1196,7 +1196,7 @@ void EquipWeapons(int client)
 			int iRandom = GetRandomInt(1, 3);
 			if (iRandom == 3 && g_bTaser[client] && gc_iTaser_MinCT.IntValue <= GetPlayerCount(true, CS_TEAM_CT))
 			{
-				if (g_iTaser_CT<gc_iTaser_CT.IntValue)
+				if (g_iTaser_CT < gc_iTaser_CT.IntValue)
 				{
 					GivePlayerItem(client,"weapon_taser");
 					iMoney -= GetWeaponPrice("weapon_taser");
@@ -1287,7 +1287,7 @@ void EquipWeapons(int client)
 			int iRandom = GetRandomInt(1, 3);
 			if (iRandom == 3 && g_bTaser[client] && gc_iTaser_MinT.IntValue <= GetPlayerCount(true, CS_TEAM_T))
 			{
-				if (g_iTaser_T<gc_iTaser_T.IntValue)
+				if (g_iTaser_T < gc_iTaser_T.IntValue)
 				{
 					GivePlayerItem(client,"weapon_taser");
 					iMoney -= GetWeaponPrice("weapon_taser");

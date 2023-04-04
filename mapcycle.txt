@@ -19,7 +19,6 @@ de_island64
 de_lake
 de_mill_ce_og
 de_mirage
-de_mirage_rmc
 de_mirage_winter
 de_mist_2014_og
 de_nuke
@@ -43,4 +42,3 @@ de_tuscan
 de_vertigo
 de_vertigo_2014_og
 de_vertigo_mc
-xmas_nipperhouse_csgo
