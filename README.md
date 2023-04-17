@@ -14,6 +14,7 @@ You can download all maps in `mapcycle.txt` via my [FastDL](https://www.notkoen.
 - [retakes-instadefuse](https://github.com/b3none/retakes-instadefuse) by B3none
 - [retakes-autoplant](https://github.com/b3none/retakes-autoplant) by B3none
 - Fork of [retakes-siteoverlay](https://github.com/shanapu/retakes-overlays/tree/master) by Shanapu, modified by koen
+- Fork of [pugsetup-damageprint](https://github.com/splewis/csgo-pug-setup/blob/master/scripting/pugsetup_damageprint.sp) by splewis, modified by koen
 
 ## Note
 
