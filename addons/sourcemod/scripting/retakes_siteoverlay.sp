@@ -5,6 +5,8 @@
 #include <sdktools>
 #include <cstrike>
 #include <retakes>
+
+// Private plugin, use fys.huds by kxnrl (https://github.com/Kxnrl/CSGO-HtmlHud)
 #include <UIManager>
 
 ConVar g_cvTime;
