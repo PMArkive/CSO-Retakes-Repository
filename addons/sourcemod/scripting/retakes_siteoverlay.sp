@@ -25,10 +25,14 @@ public void OnPluginStart()
 {
 	g_cvTime = CreateConVar("sm_retake_overlays_time", "5.0", "How long show the Bombsite overlays? in seconds", _, true, 1.0);
 	AutoExecConfig(true, "overlays", "sourcemod/retakes");
+	
+	HookEvent("bomb_planted", Event_BombPlanted, EventHookMode_Post);
 }
 
-public void Retakes_OnSitePicked(Bombsite& site)
+public void Event_BombPlanted(Event event, const char[] name, bool dontBroadcast)
 {
+	Bombsite site = Retakes_GetCurrrentBombsite();
+
 	if (site == BombsiteA)
 	{
 		for (int i = 1; i <= MaxClients; i++)
