@@ -41,9 +41,9 @@ public void Event_BombPlanted(Event event, const char[] name, bool dontBroadcast
 				continue;
 
 			if (GetClientTeam(i) == CS_TEAM_CT)
-				SendHtmlHud(i, g_cvTime.FloatValue, true, "Retake: <font color='#00FF00'>A</font>");
+				SendHtmlHud(i, g_cvTime.FloatValue, true, "<font class='fontSize-xl'>Retake: <font color='#00FF00'>A</font></font>");
 			else if (GetClientTeam(i) == CS_TEAM_T)
-				SendHtmlHud(i, g_cvTime.FloatValue, true, "Defend: <font color='#00FF00'>A</font>");
+				SendHtmlHud(i, g_cvTime.FloatValue, true, "<font class='fontSize-xl'>Defend: <font color='#00FF00'>A</font></font>");
 		}
 	}
 	else if (site == BombsiteB)
@@ -54,9 +54,9 @@ public void Event_BombPlanted(Event event, const char[] name, bool dontBroadcast
 				continue;
 
 			if (GetClientTeam(i) == CS_TEAM_CT)
-				SendHtmlHud(i, g_cvTime.FloatValue, true, "Retake: <font color='#00FF00'>B</font>");
+				SendHtmlHud(i, g_cvTime.FloatValue, true, "<font class='fontSize-xl'>Retake: <font color='#00FF00'>B</font></font>");
 			else if (GetClientTeam(i) == CS_TEAM_T)
-				SendHtmlHud(i, g_cvTime.FloatValue, true, "Defend: <font color='#00FF00'>B</font>");
+				SendHtmlHud(i, g_cvTime.FloatValue, true, "<font class='fontSize-xl'>Defend: <font color='#00FF00'>B</font></font>");
 		}
 	}
 }
